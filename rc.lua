@@ -541,3 +541,5 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 --autostart
 awful.spawn.with_shell("picom --config $HOME/.config/picom/picom.conf")
 awful.spawn.with_shell("nm-applet")
+awful.spawn.with_shell("xrandr --output HDMI-1 --primary")
+awful.spawn.with_shell("xrandr --output eDP-1 --brightness 0.4")
