@@ -206,7 +206,9 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
-    awful.key({}, "XF86AudioRaiseVolume", function () awful.spawn.with_whell("pactl set-sink-volume @DEFAULT_SINK@ +1%") end),
+    awful.key({}, "XF86Calculator", function () awful.spawn("mate-calc") end,
+            {description = "start calculator", group = "launcher"}),
+    awful.key({}, "XF86AudioRaiseVolume", function () awful.spawn.with_shell("pactl set-sink-volume @DEFAULT_SINK@ +1%") end),
     awful.key({}, "XF86AudioLowerVolume", function () awful.spawn.with_shell("pactl set-sink-volume @DEFAULT_SINK@ -1%") end),
     awful.key({}, "XF86AudioMute", function () awful.spawn.with_shell("pactl set-sink-mute @DEFAULT_SINK@ toggle") end),
     awful.key({ modkey }, "Escape", function () awful.spawn("i3lock") end),
@@ -253,6 +255,8 @@ globalkeys = gears.table.join(
         {description = "go back", group = "client"}),
 
     -- Standard program
+    awful.key({ "Control", "Shift" }, "Escape", function () awful.spawn("mate-system-monitor") end,
+    {description = "launch system monitor", group = "launcher"}),
     awful.key({ modkey }, "e", function () awful.spawn("caja") end,
             {description = "start file manager", group = "launcher"}),
     awful.key({ }, "Print", function () awful.spawn("flameshot gui -c") end,
@@ -543,3 +547,4 @@ awful.spawn.with_shell("picom --config $HOME/.config/picom/picom.conf")
 awful.spawn.with_shell("nm-applet")
 awful.spawn.with_shell("xrandr --output HDMI-1 --primary")
 awful.spawn.with_shell("xrandr --output eDP-1 --brightness 0.4")
+awful.spawn.with_shell("qjackctl")
