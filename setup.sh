@@ -11,5 +11,7 @@ if [ -f "$HOME/.config/awesome/rc.lua" ]; then
     sudo rm $HOME/.config/awesome/rc.lua
 fi
 
+echo "Cleaning up..."
+sudo rm -r $HOME/awesome
 # Nukopijuoti rc.lua failą
 sudo cp $HOME/awesome/rc.lua $HOME/.config/awesome/
