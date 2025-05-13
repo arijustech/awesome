@@ -212,7 +212,22 @@ globalkeys = gears.table.join(
     awful.key({}, "XF86AudioMute", function () awful.spawn.with_shell("pactl set-sink-mute @DEFAULT_SINK@ toggle") end),
     awful.key({ modkey }, "Escape", function () awful.spawn("i3lock") end),
     awful.key({ modkey,           }, "F1",      hotkeys_popup.show_help,
-              {description="show help", group="awesome"}),
+              {description="show help", group="awesome"}),A
+
+awful.key({ modkey, "Shift" }, "Left", function ()
+    if client.focus and client.focus.screen.index > 1 then
+        local c = client.focus
+        local target_screen = c.screen.index - 1
+        c:move_to_screen(target_screen)
+    end
+end, {description = "move client to screen on the left", group = "screen"}),
+awful.key({ modkey, "Shift" }, "Right", function ()
+    if client.focus and client.focus.screen.index < screen.count() then
+        local c = client.focus
+        local target_screen = c.screen.index + 1
+        c:move_to_screen(target_screen)
+    end
+end, {description = "move client to screen on the right", group = "screen"}),
 
     awful.key({ modkey,           }, "j",
         function ()
