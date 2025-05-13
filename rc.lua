@@ -318,6 +318,8 @@ clientkeys = gears.table.join(
               {description = "move to screen", group = "client"}),
     awful.key({ modkey }, "t", function () awful.layout.set(awful.layout.suit.tile) end,
             {description = "set tiling layout", group = "layout"}),
+    awful.key){ modkey }, "m", function () awful.layout.set(awful.layout.suit.max) end,
+            {description = "set monocle layout", group = "layout"}),
     awful.key({ modkey,           }, "p",      function (c) c.ontop = not c.ontop            end,
               {description = "toggle keep on top", group = "client"}),
     awful.key({ modkey,           }, "n",
