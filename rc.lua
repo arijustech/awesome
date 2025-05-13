@@ -312,18 +312,7 @@ end, {description = "move client to screen on the right", group = "screen"}),
     awful.key({ modkey }, "r", function () awful.spawn("rofi -show drun") end,
             {description = "start rofi", group = "launcher"}),
     awful.key({ modkey, "Control" }, "q", function () awful.spawn.with_shell("$HOME/.config/rofi/powermenu.sh") end,
-            {description = "open powermenu", group = "launcher"}),
-awful.key({ modkey }, "t", function ()
-    local s = awful.screen.focused()
-    for _, c in ipairs(s.clients) do
-        c.maximized = false
-        c.maximized_horizontal = false
-        c.maximized_vertical = false
-        c.floating = false
-    end
-    awful.layout.set(awful.layout.suit.tile, s)
-    awful.layout.arrange(s)
-end, {description = "set tiling layout and reset window states", group = "layout"})
+            {description = "open powermenu", group = "launcher"})
 )
 
 clientkeys = gears.table.join(
