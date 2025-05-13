@@ -330,8 +330,17 @@ clientkeys = gears.table.join(
               {description = "move to master", group = "client"}),
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
               {description = "move to screen", group = "client"}),
-    awful.key({ modkey }, "t", function () awful.layout.set(awful.layout.suit.tile) end,
-            {description = "set tiling layout", group = "layout"}),
+awful.key({ modkey }, "t", function ()
+    local s = awful.screen.focused()
+    for _, c in ipairs(s.clients) do
+        c.maximized = false
+        c.maximized_horizontal = false
+        c.maximized_vertical = false
+        c.floating = false
+    end
+    awful.layout.set(awful.layout.suit.tile, s)
+    awful.layout.arrange(s)
+end, {description = "set tiling layout and reset window states", group = "layout"})
     awful.key){ modkey }, "m", function () awful.layout.set(awful.layout.suit.max) end,
             {description = "set monocle layout", group = "layout"}),
     awful.key({ modkey,           }, "p",      function (c) c.ontop = not c.ontop            end,
