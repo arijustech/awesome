@@ -265,6 +265,8 @@ awful.key({ modkey, "Shift" }, "Right",
         {description = "go back", group = "client"}),
 
     -- Standard program
+    awful.key({}, "XF86Calculator", function () awful.spawn("mate-terminal") end,
+            {description = "start calculator", group = "launcher"}),
     awful.key({ modkey }, "Escape", function () awful.spawn("i3lock") end,
             {description = "lockscreen", group = "launcher"}),
     awful.key({ modkey }, "e", function () awful.spawn("caja") end,
