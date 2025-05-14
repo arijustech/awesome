@@ -248,7 +248,7 @@ globalkeys = gears.table.join(
             {description = "lockscreen", group = "launcher"}),
     awful.key({ modkey }, "e", function () awful.spawn("caja") end,
             {description = "start file manager", group = "launcher"}),
-    awful.key({ modkey }, "b", function () awful.spawn("flatpak run com.brave.Browser") end,
+    awful.key({ modkey }, "b", function () awful.spawn("flatpak run com.google.Chrome") end,
             {description = "start browser", group = "launcher"}),
     awful.key({ "Mod1", modkey }, "s", function () awful.spawn("orca") end,
             {description = "start screenreader", group = "screenreader"}),
