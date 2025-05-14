@@ -208,7 +208,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "F1",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
 
-awful.key({ modkey, "Shift" }, "Left",
+awful.key({ modkey, "Shift" }, ",",
     function ()
         if client.focus then
             local screen = client.focus.screen
@@ -218,7 +218,7 @@ awful.key({ modkey, "Shift" }, "Left",
         end
     end,
     {description = "move window to the left screen", group = "client"}),
-awful.key({ modkey, "Shift" }, "Right",
+awful.key({ modkey, "Shift" }, ".",
     function ()
         if client.focus then
             local screen = client.focus.screen
@@ -249,9 +249,9 @@ awful.key({ modkey, "Shift" }, "Right",
               {description = "swap with next client by index", group = "client"}),
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end,
               {description = "swap with previous client by index", group = "client"}),
-    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end,
+    awful.key({ modkey }, ".", function () awful.screen.focus_relative( 1) end,
               {description = "focus the next screen", group = "screen"}),
-    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
+    awful.key({ modkey }, ",", function () awful.screen.focus_relative(-1) end,
               {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
