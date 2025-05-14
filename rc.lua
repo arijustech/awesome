@@ -208,6 +208,27 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "F1",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
 
+awful.key({ modkey, "Shift" }, "Left",
+    function ()
+        if client.focus then
+            local screen = client.focus.screen
+            local prev = screen.index - 1
+            if prev < 1 then prev = screen.count() end
+            client.focus:move_to_screen(prev)
+        end
+    end,
+    {description = "move window to the left screen", group = "client"}),
+awful.key({ modkey, "Shift" }, "Right",
+    function ()
+        if client.focus then
+            local screen = client.focus.screen
+            local next = screen.index + 1
+            if next > screen.count() then next = 1 end
+            client.focus:move_to_screen(next)
+        end
+    end,
+    {description = "move window to the right screen", group = "client"}),
+
     awful.key({ modkey,           }, "j",
         function ()
             awful.client.focus.byidx( 1)
