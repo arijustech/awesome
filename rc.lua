@@ -242,6 +242,8 @@ globalkeys = gears.table.join(
         {description = "go back", group = "client"}),
 
     -- Standard program
+    awful.key({ "Control", "Shift" }, "Escape", function () awful.spawn("mate-terminal") end,
+            {description = "start system monitor", group = "launcher"}),
     awful.key({}, "XF86Calculator", function () awful.spawn("mate-terminal") end,
             {description = "start calculator", group = "launcher"}),
     awful.key({ modkey }, "Escape", function () awful.spawn("i3lock") end,
