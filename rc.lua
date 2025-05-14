@@ -242,7 +242,7 @@ globalkeys = gears.table.join(
         {description = "go back", group = "client"}),
 
     -- Standard program
-    awful.key({ "Control", "Shift" }, "Escape", function () awful.spawn("mate-terminal") end,
+    awful.key({ "Control", "Shift" }, "Escape", function () awful.spawn("mate-system-monitor") end,
             {description = "start system monitor", group = "launcher"}),
     awful.key({}, "XF86Calculator", function () awful.spawn("mate-terminal") end,
             {description = "start calculator", group = "launcher"}),
